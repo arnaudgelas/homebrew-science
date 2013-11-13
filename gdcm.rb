@@ -6,6 +6,7 @@ class Gdcm < Formula
   sha1 'ed1ce34863e58878283264f8b097caba8f2d0d81'
 
   depends_on 'cmake' => :build
+  depends_on 'vtk' => :optional
 
   option 'examples', 'Compile and install various examples'
   option 'applications', 'Compile and install gdcm applications'
@@ -13,17 +14,21 @@ class Gdcm < Formula
   def install
     srcDir = Dir.pwd
 
+    print std_cmake_args
+
     args = std_cmake_args + %W[
-      -DCMAKE_BUILD_TYPE=Release
-      -DGDCM_SHARED_LIBS=ON
+      -DGDCM_BUILD_SHARED_LIBS=ON
       -DGDCM_USE_VTK=OFF
       -DGDCM_BUILD_TESTING=OFF
       -DGDCM_DOCUMENTATION=OFF
     ]
 
-    args << ".."
     args << '-DGDCM_BUILD_EXAMPLES=' + ((build.include? 'examples') ? 'ON' : 'OFF')
-    args << '-DGDCM_BUILD_APPLICATIONS=' + ((build.include? 'applications') ? 'ON' : 'OFF') 
+    args << '-DGDCM_BUILD_APPLICATIONS=' + ((build.include? 'applications') ? 'ON' : 'OFF')
+
+    if build.with? 'vtk'
+      args << '-DGDCM_USE_VTK=ON'
+    end
 
     mkdir '../gdcm-build' do
       system "cmake", srcDir, *args
@@ -44,3 +49,4 @@ class Gdcm < Formula
     system "false"
   end
 end
+
