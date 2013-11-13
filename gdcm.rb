@@ -7,19 +7,25 @@ class Gdcm < Formula
 
   depends_on 'cmake' => :build
 
+  option 'examples', 'Compile and install various examples'
+  option 'applications', 'Compile and install gdcm applications'
+
   def install
     srcDir = Dir.pwd
 
     args = std_cmake_args + %W[
       -DCMAKE_BUILD_TYPE=Release
-      -DGDCM_BUILD_EXAMPLES=OFF
       -DGDCM_SHARED_LIBS=ON
-      -DBUILD_APPLICATIONS=ON
       -DGDCM_USE_VTK=OFF
       -DGDCM_BUILD_TESTING=OFF
+      -DGDCM_DOCUMENTATION=OFF
     ]
 
-    mkdir '../build' do
+    args << ".."
+    args << '-DGDCM_BUILD_EXAMPLES=' + ((build.include? 'examples') ? 'ON' : 'OFF')
+    args << '-DGDCM_BUILD_APPLICATIONS=' + ((build.include? 'applications') ? 'ON' : 'OFF') 
+
+    mkdir '../gdcm-build' do
       system "cmake", srcDir, *args
       system 'make'
       system 'make install'
