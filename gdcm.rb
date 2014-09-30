@@ -2,8 +2,8 @@ require "formula"
 
 class Gdcm < Formula
   homepage "http://sourceforge.net/projects/gdcm/"
-  url "https://downloads.sourceforge.net/project/gdcm/gdcm%202.x/GDCM%202.4.3/gdcm-2.4.3.tar.bz2"
-  sha1 "37845e1fcbe7b8a15aef89176a17962705ec6044"
+  url "https://downloads.sourceforge.net/project/gdcm/gdcm%202.x/GDCM%202.4.4/gdcm-2.4.4.tar.bz2"
+  sha1 "da1c47186aa6211d72dfa7b06a2a2b2740c7bbd9"
 
   option "with-check", "Run the GDCM test suite"
 
