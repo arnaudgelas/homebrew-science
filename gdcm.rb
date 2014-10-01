@@ -3,7 +3,7 @@ require "formula"
 class Gdcm < Formula
   homepage "http://sourceforge.net/projects/gdcm/"
   url "https://downloads.sourceforge.net/project/gdcm/gdcm%202.x/GDCM%202.4.4/gdcm-2.4.4.tar.bz2"
-  sha1 "da1c47186aa6211d72dfa7b06a2a2b2740c7bbd9"
+  sha1 "4b77a857cf8432da72140a5e7d20f78c091ee019"
 
   option "with-check", "Run the GDCM test suite"
 
