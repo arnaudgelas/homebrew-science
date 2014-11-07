@@ -14,10 +14,12 @@ class Statismo < Formula
   depends_on "insighttoolkit" => :build
 
   def install
-    args = std_cmake_args
-    args << '-DBUILD_SHARED_LIBS=ON'
-    args << '-DVTK_SUPPORT=ON'
-    args << '-DITK_SUPPORT=ON'
+    args = std_cmake_args + %W[
+      -DBUILD_SHARED_LIBS=ON
+      -DBUILD_TESTING=ON
+      -DVTK_SUPPORT=ON
+      -DITK_SUPPORT=ON
+    ]
     args << ".."
 
     mkdir 'statismo-build' do
