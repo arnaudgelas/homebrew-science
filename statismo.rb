@@ -17,7 +17,7 @@ class Statismo < Formula
     args = std_cmake_args + %W[
       -DBUILD_SHARED_LIBS=ON
       -DBUILD_TESTING=ON
-      -DBUILD_EXAMPLES=ON
+      -DBUILD_EXAMPLES=OFF
       -DBUILD_DOCUMENTATION=OFF
       -DVTK_SUPPORT=ON
       -DITK_SUPPORT=ON
