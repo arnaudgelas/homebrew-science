@@ -2,8 +2,8 @@ require "formula"
 
 class Statismo < Formula
   homepage "https://github.com/statismo/statismo"
-  url "https://github.com/statismo/statismo/archive/v0.10.1.tar.gz"
-  sha1 "b42f67ea25ffacfe6a769aefb0c71400512a1923"
+  url "https://github.com/statismo/statismo/archive/v0.10.2.tar.gz"
+  sha1 "c6f65bb7f37604aebbe40e767adbea4d39509050"
   head 'https://github.com/statismo/statismo.git'
 
   depends_on "cmake" => :build
@@ -17,6 +17,8 @@ class Statismo < Formula
     args = std_cmake_args + %W[
       -DBUILD_SHARED_LIBS=ON
       -DBUILD_TESTING=ON
+      -DBUILD_EXAMPLES=OFF
+      -DBUILD_DOCUMENTATION=OFF
       -DVTK_SUPPORT=ON
       -DITK_SUPPORT=ON
     ]
