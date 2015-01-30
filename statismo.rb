@@ -16,8 +16,8 @@ class Statismo < Formula
   def install
     args = std_cmake_args + %W[
       -DBUILD_SHARED_LIBS=ON
-      -DBUILD_TESTING=ON
-      -DBUILD_EXAMPLES=OFF
+      -DBUILD_TESTING=OFF
+      -DBUILD_EXAMPLES=ON
       -DBUILD_DOCUMENTATION=OFF
       -DVTK_SUPPORT=ON
       -DITK_SUPPORT=ON
