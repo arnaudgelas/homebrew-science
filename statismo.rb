@@ -12,12 +12,12 @@ class Statismo < Formula
   end
 
   depends_on "cmake" => :build
-  depends_on "eigen" => :build
-  depends_on "boost" => :build
-  depends_on "hdf5" => :build
-  depends_on "vtk" => :build
-  depends_on "insighttoolkit" => :build
-  depends_on "python" => :build
+  depends_on "eigen"
+  depends_on "boost"
+  depends_on "hdf5"
+  depends_on "vtk"
+  depends_on "insighttoolkit"
+  # depends_on "python" => :build
 
   def install
     args = std_cmake_args + %W[
