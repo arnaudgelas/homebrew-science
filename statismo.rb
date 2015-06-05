@@ -17,7 +17,6 @@ class Statismo < Formula
   depends_on "hdf5"
   depends_on "vtk"
   depends_on "insighttoolkit"
-  # depends_on "python" => :build
 
   def install
     args = std_cmake_args + %W[
